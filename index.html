@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>จดน้อง ผู้ช่วยบันทึกสุขภาพลูกน้อยใน LINE</title>
+<meta name="description" content="บันทึกนม ฉี่ อึ การนอน และอาการของลูกน้อยใน LINE แค่พิมพ์เหมือนคุยกับเพื่อน ใช้ร่วมกันทั้งครอบครัว เตือนมื้อนม และบอกเมื่อควรพบแพทย์">
+<meta property="og:title" content="จดน้อง ผู้ช่วยบันทึกสุขภาพลูกน้อยใน LINE">
+<meta property="og:description" content="พิมพ์ 'นม 90' ก็บันทึกได้ ใช้ร่วมกันทั้งครอบครัว เตือนมื้อนม และบอกเมื่อควรพบแพทย์">
+<meta property="og:image" content="assets/richmenu.jpg">
+<meta name="theme-color" content="#fbf8f4">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&family=Mali:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="">จดน้อง</a>
+    <nav class="links">
+      <a href="#start"><span class="th">เริ่มใช้งาน</span><span class="en">Get started</span></a>
+      <a href="#family"><span class="th">ใช้ทั้งครอบครัว</span><span class="en">Family</span></a>
+      <a href="#guide"><span class="th">วิธีบันทึก</span><span class="en">How to log</span></a>
+      <a href="#safety"><span class="th">ความปลอดภัย</span><span class="en">Safety</span></a>
+      <a href="#faq"><span class="th">คำถามที่พบบ่อย</span><span class="en">FAQ</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="th" aria-pressed="true">ไทย</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="th">ใช้งานใน LINE ไม่ต้องลงแอปเพิ่ม</span><span class="en">Works inside LINE, no new app</span></span>
+      <h1><span class="th">บันทึกสุขภาพลูกน้อย<br>แค่พิมพ์เหมือนคุยกับเพื่อน</span><span class="en">Your baby's health log,<br>as easy as chatting</span></h1>
+      <p class="lead th">พิมพ์ "นม 90" หรือ "อึ สีเขียว" จดน้อง จะบันทึกให้ บอกเวลามื้อนมถัดไป สรุปรายงานให้คุณหมอดู
+        และเตือนทันทีเมื่อสิ่งที่บันทึกเป็นสัญญาณที่ควรพบแพทย์ ใช้ร่วมกันได้ทั้งครอบครัว</p>
+      <p class="lead en">Type "milk 90" or "poop green" and JodNong saves it, tells you when the next feed is due,
+        builds a report for the doctor, and warns you right away when something you logged needs a doctor.
+        The whole family can use it together.</p>
+      <div class="cta">
+        <a class="btn btn-line" data-add href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8.1-6C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
+          <span class="th">เพิ่มเพื่อนใน LINE</span><span class="en">Add on LINE</span>
+        </a>
+        <a class="btn btn-ghost" href="#start"><span class="th">ดูวิธีเริ่มใช้งาน</span><span class="en">How to start</span></a>
+      </div>
+      <div class="qrbox">
+        <div id="qr" aria-label="QR"></div>
+        <div><span class="th">ใช้คอมอยู่? สแกน QR ด้วยมือถือ<br>เพื่อเพิ่มเพื่อนได้เลย</span><span class="en">On a computer? Scan with<br>your phone to add the bot.</span>
+          <br><span class="fine">LINE ID: <b data-fill="lineid"></b></span></div>
+      </div>
+      <p class="fine"><span class="th">ช่วงทดลองใช้ ฟรี · ไม่ใช่การวินิจฉัยโรค ฉุกเฉินโทร 1669</span><span class="en">Free during the trial · Not a diagnosis. Emergency: call 1669</span></p>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="bar"><span class="th">ครอบครัวน้องอริณ (2)</span><span class="en">Arin's family (2)</span></div>
+      <div class="msg me"><div class="bubble"><span class="th">นม 90</span><span class="en">milk 90</span></div></div>
+      <div class="msg bot"><div class="bubble"><span class="th">✅ บันทึกให้น้องอริณแล้ว
+🍼 นมขวด 90 มล.
+📊 วันนี้: นม 5 มื้อ (420 มล.) · ฉี่ 4 · อึ 1
+⏰ มื้อถัดไปประมาณ 17:00</span><span class="en">✅ Saved for Arin
+🍼 Bottle 90 ml
+📊 Today: 5 feeds (420 ml) · 4 pee · 1 poop
+⏰ Next feed around 17:00</span></div></div>
+      <div class="msg me"><div class="bubble"><span class="th">อึสีขาวซีด</span><span class="en">poop pale white</span></div></div>
+      <div class="msg bot"><div class="bubble"><span class="th">🔴 อึสีซีด/ขาว ควรพาน้องอริณไปพบแพทย์ภายในวันนี้
+และนำผ้าอ้อมหรือรูปถ่ายไปให้คุณหมอดูด้วย</span><span class="en">🔴 Pale/white poop: take Arin to a doctor today,
+and bring the diaper or a photo of it.</span>
+        <div class="chips"><span>📞 <span class="th">โทร 1669</span><span class="en">Call 1669</span></span><span>↩️ <span class="th">ยกเลิกบันทึกนี้</span><span class="en">Undo</span></span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="th">จดน้อง ช่วยอะไรได้บ้าง</span><span class="en">What JodNong does</span></h2>
+    </div>
+    <div class="grid three">
+      <div class="card"><div class="ico">✍️</div>
+        <h3><span class="th">บันทึกแบบไม่ต้องคิด</span><span class="en">Logging without thinking</span></h3>
+        <p class="th">พิมพ์สั้นๆ ใช้อีโมจิ หรือกดเมนูก็ได้ ใส่เวลาย้อนหลังอย่าง "ตี 3" ก็เข้าใจ</p>
+        <p class="en">Type a few words, use emoji or tap the menu. Past times like "3am" work too.</p></div>
+      <div class="card"><div class="ico">⏱️</div>
+        <h3><span class="th">จับเวลาให้นม</span><span class="en">Feed timer</span></h3>
+        <p class="th">กดเริ่มตอนน้องเริ่มกิน พิมพ์ "เสร็จแล้ว" ตอนจบ ได้ทั้งเวลาเริ่ม เวลาจบ และข้างที่เข้าเต้า</p>
+        <p class="en">Tap start when the feed begins and type "done" at the end: start, end and side are saved.</p></div>
+      <div class="card"><div class="ico">⏰</div>
+        <h3><span class="th">บอกมื้อถัดไป และเตือน</span><span class="en">Next feed and reminders</span></h3>
+        <p class="th">ตั้งรอบนมเองหรือให้ระบบเรียนรู้จากจังหวะการกินของน้อง แล้วเตือนก่อนถึงเวลาราว 15 นาที</p>
+        <p class="en">Set an interval or let it learn your baby's rhythm, then get a reminder about 15 minutes before.</p></div>
+      <div class="card"><div class="ico">🩺</div>
+        <h3><span class="th">คัดกรองอาการเบื้องต้น</span><span class="en">First-line screening</span></h3>
+        <p class="th">เทียบสิ่งที่บันทึกกับเกณฑ์ที่กุมารแพทย์ตรวจสอบแล้ว เช่น ไข้ในทารก อึสีซีด ฉี่น้อย แล้วบอกว่าควรพบแพทย์เมื่อไร</p>
+        <p class="en">Checks what you log against pediatrician-reviewed rules (fever in young babies, pale poop, few wet diapers…) and tells you when to see a doctor.</p></div>
+      <div class="card"><div class="ico">📊</div>
+        <h3><span class="th">รายงานให้คุณหมอดู</span><span class="en">Reports for the doctor</span></h3>
+        <p class="th">สรุป 1 / 7 / 15 / 30 วัน เป็นตาราง เปิดให้คุณหมอดูได้ทันที และรายงานประจำสัปดาห์ทุกเช้าวันอาทิตย์</p>
+        <p class="en">1 / 7 / 15 / 30-day summaries as a table to show the doctor, plus a weekly report every Sunday morning.</p></div>
+      <div class="card"><div class="ico">👨‍👩‍👧</div>
+        <h3><span class="th">ใช้ร่วมกันทั้งบ้าน</span><span class="en">Shared by the family</span></h3>
+        <p class="th">ใส่บอทในกลุ่ม LINE ครอบครัว ใครบันทึกก็เห็นตรงกัน และตั้งเวรเตือนนมได้ ไม่ต้องปลุกทั้งบ้าน</p>
+        <p class="en">Add the bot to your family LINE group: everyone sees the same log, and feed reminders can go to whoever is on duty.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= START ================= -->
+<section id="start">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="th">เริ่มใช้งานใน 3 ขั้นตอน</span><span class="en">Start in 3 steps</span></h2>
+      <p class="th">ใช้เวลาไม่ถึง 1 นาที ไม่ต้องสมัครสมาชิก ไม่ต้องลงแอปเพิ่ม</p>
+      <p class="en">Under a minute. No sign-up, no extra app.</p>
+    </div>
+    <ol class="steps row">
+      <li>
+        <h3><span class="th">เพิ่มเพื่อน</span><span class="en">Add the bot</span></h3>
+        <p class="th">กดปุ่ม "เพิ่มเพื่อนใน LINE" หรือค้นหา LINE ID <b data-fill="lineid"></b> แล้วพิมพ์ "สวัสดี"</p>
+        <p class="en">Tap "Add on LINE" or search for LINE ID <b data-fill="lineid"></b>, then say "Hello".</p>
+        <p><a class="btn btn-line" data-start href="#" style="min-height:44px;font-size:15px;padding:0 18px"><span class="th">เปิดแชทและทักทาย</span><span class="en">Open the chat</span></a></p>
+      </li>
+      <li>
+        <h3><span class="th">บอกข้อมูลน้อง</span><span class="en">Tell it about your baby</span></h3>
+        <p class="th">บอทจะถาม 3 อย่าง: ชื่อเล่น · วันเกิด (กดเลือกจากปฏิทินได้) · น้ำหนักแรกเกิด (ข้ามได้)</p>
+        <p class="en">It asks 3 things: nickname · date of birth (pick from a calendar) · birth weight (optional).</p>
+        <p class="fine th">อยากใช้ภาษาอังกฤษ กดปุ่ม English ในข้อความแรกได้เลย</p>
+        <p class="fine en">Tap "English" under the first message to use English.</p>
+      </li>
+      <li>
+        <h3><span class="th">เริ่มบันทึกได้เลย</span><span class="en">Start logging</span></h3>
+        <p class="th">ลองพิมพ์ <code class="cmd">นม 90</code> หรือ <code class="cmd">ฉี่</code> หรือกดเมนูด้านล่างของแชท</p>
+        <p class="en">Try <code class="cmd">milk 90</code> or <code class="cmd">pee</code>, or tap the menu at the bottom of the chat.</p>
+        <p class="fine th">กดตัวอย่างในหน้านี้เพื่อคัดลอกไปวางในแชทได้</p>
+        <p class="fine en">Tap any example on this page to copy it.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= FAMILY ================= -->
+<section id="family" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="th">ใช้ทั้งครอบครัวในกลุ่ม LINE</span><span class="en">Use it as a family in a LINE group</span></h2>
+      <p class="th">พ่อ แม่ ปู่ย่า ตายาย หรือพี่เลี้ยง ใครให้นมหรือเปลี่ยนผ้าอ้อมก็บันทึกได้ ข้อมูลรวมไว้ที่เดียว</p>
+      <p class="en">Parents, grandparents or a nanny: whoever feeds or changes the baby can log it, all in one place.</p>
+    </div>
+    <div class="grid two">
+      <div>
+        <ol class="steps">
+          <li><h3><span class="th">เชิญบอทเข้ากลุ่ม</span><span class="en">Invite the bot</span></h3>
+            <p class="th">เพิ่มจดน้องเป็นเพื่อนก่อน แล้วในกลุ่มครอบครัวกด ☰ เมนูกลุ่ม → เชิญ → เลือก จดน้อง (หรือกด "ชวนครอบครัวมาช่วยจด" ที่เมนู แล้วกด "ส่งจดน้องเข้ากลุ่ม")</p>
+            <p class="en">Add the bot as a friend first. Then in your family group tap ☰ → Invite → choose JodNong (or tap the family banner in the menu and "Send bot to a group").</p></li>
+          <li><h3><span class="th">ตั้งชื่อน้องในกลุ่ม</span><span class="en">Name your baby in the group</span></h3>
+            <p class="th">ในกลุ่มให้พิมพ์ขึ้นต้นด้วย "ชื่อน้อง" เช่น <code class="cmd">ชื่อน้อง อริณ</code> แล้วตอบวันเกิดต่อ</p>
+            <p class="en">In a group, start with "name", e.g. <code class="cmd">name Arin</code>, then answer the date of birth.</p></li>
+          <li><h3><span class="th">ทุกคนบันทึกได้</span><span class="en">Everyone can log</span></h3>
+            <p class="th">บอทตอบเฉพาะข้อความเรื่องน้อง คุยเรื่องอื่นกันในกลุ่มได้ตามปกติ ถ้าบันทึกซ้ำกัน บอทจะเตือนให้</p>
+            <p class="en">The bot only answers baby-related messages, so the family can chat as usual. It flags double entries.</p></li>
+          <li><h3><span class="th">จดจากแชทส่วนตัวก็ได้</span><span class="en">Log from your private chat too</span></h3>
+            <p class="th">พิมพ์ <code class="cmd">เชื่อมแชทฉัน</code> ในกลุ่ม แล้วแชทส่วนตัวกับจดน้อง (ที่มีเมนูให้กด) จะบันทึกเข้ากลุ่มให้</p>
+            <p class="en">Type <code class="cmd">link me</code> in the group, and your private chat with the bot (the one with the menu) logs into the group.</p></li>
+        </ol>
+      </div>
+      <div class="card">
+        <div class="ico">🙋</div>
+        <h3><span class="th">เวรเตือนนม: ไม่ปลุกทั้งบ้าน</span><span class="en">Reminder duty: don't wake everyone</span></h3>
+        <p class="th">ถ้าเตือนนมในกลุ่ม มือถือทุกคนจะดังพร้อมกัน ตั้งเวรให้เตือนเฉพาะคนที่ดูแลน้องอยู่ทางแชทส่วนตัวได้</p>
+        <p class="en">Reminders in the group buzz every phone. Send them only to the parent on duty, in their private chat.</p>
+        <table class="ex">
+          <tr><td><code class="cmd th">เตือนที่แชทฉัน</code><code class="cmd en">remind me</code></td>
+              <td><span class="th">เตือนนมเฉพาะคุณ</span><span class="en">Reminders go only to you</span></td></tr>
+          <tr><td><code class="cmd th">เวรฉัน</code><code class="cmd en">my turn</code></td>
+              <td><span class="th">สลับมารับเวรแทน</span><span class="en">Take over the shift</span></td></tr>
+          <tr><td><code class="cmd th">รับเวรกลางคืน</code><code class="cmd en">night shift</code></td>
+              <td><span class="th">รับเวร 22:00–06:00 (อีกคนรับกลางวัน)</span><span class="en">Take 22:00–06:00 (the other parent has daytime)</span></td></tr>
+          <tr><td><code class="cmd th">เตือนนมในกลุ่ม</code><code class="cmd en">remind group</code></td>
+              <td><span class="th">กลับไปเตือนในกลุ่ม</span><span class="en">Back to the group</span></td></tr>
+        </table>
+        <p class="tip th">ในแชทส่วนตัวกดเริ่มให้นมหรือบันทึกได้เลย ข้อมูลจะรวมกับกลุ่ม ส่วนคำเตือนอาการสำคัญจะส่งเข้ากลุ่มด้วยเสมอ</p>
+        <p class="tip en">You can log from the private chat too; it all goes to the family's data. Serious warnings are always sent to the group as well.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUIDE ================= -->
+<section id="guide">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="th">วิธีบันทึก</span><span class="en">How to log</span></h2>
+      <p class="th">ไม่ต้องจำรูปแบบเป๊ะๆ พิมพ์แบบที่พูดกันปกติได้ ถ้าบอทไม่แน่ใจจะถามกลับ ตัวอย่างด้านล่างกดเพื่อคัดลอกได้</p>
+      <p class="en">No strict format: write the way you'd say it. If the bot isn't sure, it asks. Tap an example to copy it.</p>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <h3>🍼 <span class="th">นม</span><span class="en">Feeding</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">นม 90</code> <code class="cmd">🍼120</code></td><td>นมขวด 90 / 120 มล. (เลขตั้งแต่ 20 ขึ้นไป = มล.)</td></tr>
+          <tr><td><code class="cmd">นม 3 oz</code></td><td>นมขวด 3 ออนซ์</td></tr>
+          <tr><td><code class="cmd">เข้าเต้าซ้าย 15 ขวา 10</code></td><td>เข้าเต้า แยกข้างและนาที</td></tr>
+          <tr><td><code class="cmd">เริ่มเข้าเต้า</code> → <code class="cmd">เสร็จแล้ว</code></td><td>จับเวลาจริง (มี <code class="cmd">สลับข้าง</code> <code class="cmd">หลับคาเต้า</code>)</td></tr>
+          <tr><td><code class="cmd">เริ่มกินนม</code> → <code class="cmd">กินไป 3 ออนซ์</code></td><td>จับเวลานมขวด แล้วใส่ปริมาณตอนจบ</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">milk 90</code> <code class="cmd">🍼120</code></td><td>Bottle 90 / 120 ml (20 or more = ml)</td></tr>
+          <tr><td><code class="cmd">milk 3 oz</code></td><td>Bottle 3 oz</td></tr>
+          <tr><td><code class="cmd">breastfed left 15 right 10</code></td><td>Breastfeed, minutes per side</td></tr>
+          <tr><td><code class="cmd">start breastfeeding</code> → <code class="cmd">done</code></td><td>Real timer (Thai buttons for switching sides)</td></tr>
+          <tr><td><code class="cmd">start feeding</code> → <code class="cmd">drank 3 oz</code></td><td>Bottle timer, amount at the end</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>💧 <span class="th">ฉี่ / อึ</span><span class="en">Diapers</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">ฉี่</code> <code class="cmd">💧</code></td><td>ผ้าอ้อมเปียก</td></tr>
+          <tr><td><code class="cmd">อึ</code> <code class="cmd">💩</code></td><td>อึปกติ</td></tr>
+          <tr><td><code class="cmd">ฉี่ อึ</code></td><td>ทั้งสองอย่างในผ้าอ้อมเดียว</td></tr>
+          <tr><td><code class="cmd">อึเหลว สีเขียว</code></td><td>บอกลักษณะได้: สี เหลว แข็ง มีมูก มีเลือด</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">pee</code> <code class="cmd">💧</code></td><td>Wet diaper</td></tr>
+          <tr><td><code class="cmd">poop</code> <code class="cmd">💩</code></td><td>Normal poop</td></tr>
+          <tr><td><code class="cmd">pee and poop</code></td><td>Both in one diaper</td></tr>
+          <tr><td><code class="cmd">poop watery green</code></td><td>Add color, watery, hard, mucus, blood</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>😴 <span class="th">นอน / ตื่น</span><span class="en">Sleep</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">หลับ</code> <code class="cmd">😴</code></td><td>เริ่มนอน</td></tr>
+          <tr><td><code class="cmd">ตื่น</code> <code class="cmd">☀️</code></td><td>ตื่น (คำนวณว่าหลับไปนานเท่าไร)</td></tr>
+          <tr><td><code class="cmd">ตื่น 17:00</code></td><td>บันทึกย้อนหลังได้</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">asleep</code> <code class="cmd">😴</code></td><td>Fell asleep</td></tr>
+          <tr><td><code class="cmd">woke up</code> <code class="cmd">☀️</code></td><td>Woke up (sleep length is worked out)</td></tr>
+          <tr><td><code class="cmd">woke up 5pm</code></td><td>Logged late? Add the time</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>⚖️ <span class="th">การเติบโต</span><span class="en">Growth</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">นน 3.4</code></td><td>น้ำหนัก 3.4 กก.</td></tr>
+          <tr><td><code class="cmd">สส 52</code></td><td>ส่วนสูง 52 ซม.</td></tr>
+          <tr><td><code class="cmd">นนแรกเกิด 3.2</code></td><td>ตั้งน้ำหนักแรกเกิด</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">weight 3.4</code></td><td>3.4 kg</td></tr>
+          <tr><td><code class="cmd">height 52</code></td><td>52 cm</td></tr>
+          <tr><td><code class="cmd">นนแรกเกิด 3.2</code></td><td>Sets the birth weight</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>🌡️ <span class="th">สุขภาพ</span><span class="en">Health</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">ไข้ 37.8 รักแร้</code></td><td>วัดไข้ บอกที่วัดด้วย (เกณฑ์ไข้ต่างกัน)</td></tr>
+          <tr><td><code class="cmd">วัดไข้ทางรักแร้</code></td><td>ตั้งที่วัดประจำ ไม่ต้องบอกทุกครั้ง</td></tr>
+          <tr><td><code class="cmd">ให้ยาพารา 1.5 ml</code></td><td>บันทึกยา</td></tr>
+          <tr><td><code class="cmd">แหวะนม</code> <code class="cmd">ตัวเหลือง</code> <code class="cmd">ไอ</code></td><td>อาการต่างๆ</td></tr>
+          <tr><td><code class="cmd">น้องหายแล้ว</code></td><td>บอกว่าดีขึ้น บอทจะเช็กก่อนหยุดติดตามอาการ</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">fever 37.8 armpit</code></td><td>Temperature + where it was taken</td></tr>
+          <tr><td><code class="cmd">วัดไข้ทางรักแร้</code></td><td>Sets your usual site (armpit)</td></tr>
+          <tr><td><code class="cmd">paracetamol 1.5 ml</code></td><td>Medicine</td></tr>
+          <tr><td><code class="cmd">spit up</code> <code class="cmd">cough</code> <code class="cmd">rash</code></td><td>Symptoms</td></tr>
+          <tr><td><code class="cmd">recovered</code></td><td>Feeling better; the bot checks before stopping follow-ups</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>🕑 <span class="th">เวลาย้อนหลัง และแก้ไข</span><span class="en">Past times and fixing mistakes</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">นม 90 ตี 3</code></td><td>ตี 3 · บ่าย 2 · 2 ทุ่ม · 14:30</td></tr>
+          <tr><td><code class="cmd">ฉี่ 20 นาทีที่แล้ว</code></td><td>นับย้อนจากตอนนี้</td></tr>
+          <tr><td>↩️ ยกเลิกบันทึกนี้</td><td>ปุ่มใต้ข้อความยืนยัน กดเมื่อบันทึกผิด แล้วพิมพ์ใหม่</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">milk 90 3am</code></td><td>3am · 2pm · 14:30</td></tr>
+          <tr><td><code class="cmd">pee 20 min ago</code></td><td>Counted back from now</td></tr>
+          <tr><td>↩️ Undo</td><td>Button under the confirmation; tap it and type again</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="tip th">💡 เข้าเต้า: นาทีที่พิมพ์นับเป็นเวลาที่กินเสร็จ เช่น พิมพ์ "เข้าเต้าขวา 10 นาที" ตอน 16:40 = กิน 16:30–16:40</p>
+    <p class="tip en">💡 Breastfeeding minutes are counted back from when you type: "right 10 min" sent at 16:40 = 16:30–16:40.</p>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="alt">
+  <div class="wrap menu-wrap">
+    <img src="assets/richmenu.jpg" alt="เมนูด้านล่างของแชท: กินนม, ฉี่/อึ, นอน/ตื่น, ชวนครอบครัวมาช่วยจด, ดูรายงาน, ตั้งค่า·วิธีใช้" loading="lazy" width="1250" height="843">
+    <div>
+      <h2><span class="th">ไม่อยากพิมพ์? กดเมนูก็ได้</span><span class="en">Rather tap? Use the menu</span></h2>
+      <p class="th">เมนูอยู่ด้านล่างของแชทส่วนตัวกับจดน้อง กดแล้วจะมีปุ่มให้เลือกต่อ</p>
+      <p class="en">The menu sits at the bottom of your private chat with the bot (labels are in Thai). Each one opens buttons to choose from.</p>
+      <dl class="menu">
+        <dt>🍼 กินนม</dt><dd><span class="th">จดเลย จับเวลา หรือเลือกเวลาที่เริ่มกิน</span><span class="en">Log now, time it, or pick when it started</span></dd>
+        <dt>💧 ฉี่/อึ</dt><dd><span class="th">ฉี่ อึ หรืออึผิดปกติ</span><span class="en">Pee, poop, or unusual poop</span></dd>
+        <dt>😴 นอน/ตื่น</dt><dd><span class="th">หลับ หรือตื่นแล้ว</span><span class="en">Asleep or awake</span></dd>
+        <dt>👨‍👩‍👧 ชวนครอบครัวมาช่วยจด</dt><dd><span class="th">วิธีจดด้วยกันทั้งบ้านในกลุ่ม LINE</span><span class="en">How to log together in a LINE group</span></dd>
+        <dt>📋 ดูรายงาน</dt><dd><span class="th">สรุป 1 / 7 / 15 / 30 วัน หรือสถานะตอนนี้</span><span class="en">1 / 7 / 15 / 30 days, or status now</span></dd>
+        <dt>⚙️ ตั้งค่า·วิธีใช้</dt><dd><span class="th">ตั้งค่า น้ำหนัก/ส่วนสูง และคำสั่งทั้งหมด</span><span class="en">Settings, weight/height, and all commands</span></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEEDS & REPORTS ================= -->
+<section>
+  <div class="wrap">
+    <div class="grid two">
+      <div class="card">
+        <h3>⏰ <span class="th">รอบนมและการเตือน</span><span class="en">Feeding interval and reminders</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">ให้นมทุก 3 ชม.</code></td><td>ตั้งรอบนม นับจากเวลาเริ่มกิน</td></tr>
+          <tr><td><code class="cmd">เปิดเตือนนม</code></td><td>เตือนก่อนมื้อถัดไปราว 15 นาที</td></tr>
+          <tr><td><code class="cmd">ไม่เตือนช่วง 23-6</code></td><td>ช่วงห้ามรบกวน</td></tr>
+          <tr><td><code class="cmd">ปิดเตือนนม</code></td><td>ปิดเตือนนม</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">feed every 3 hours</code></td><td>Interval, counted from the start of a feed</td></tr>
+          <tr><td><code class="cmd">remind on</code></td><td>Reminder about 15 min before the next feed</td></tr>
+          <tr><td><code class="cmd">ไม่เตือนช่วง 23-6</code></td><td>Quiet hours 23:00–06:00</td></tr>
+          <tr><td><code class="cmd">remind off</code></td><td>Turn reminders off</td></tr>
+        </table>
+        <p class="tip th">ทารกอายุต่ำกว่า 28 วัน ระบบไม่ให้ตั้งรอบนมห่างเกิน 4 ชม. ตามคำแนะนำของกุมารแพทย์</p>
+        <p class="tip en">For babies under 28 days the interval can't be over 4 hours, as advised by a pediatrician.</p>
+      </div>
+      <div class="card">
+        <h3>📊 <span class="th">รายงานและสถานะ</span><span class="en">Reports and status</span></h3>
+        <table class="ex th">
+          <tr><td><code class="cmd">สถานะ</code></td><td>มื้อล่าสุด มื้อถัดไป และยอดวันนี้</td></tr>
+          <tr><td><code class="cmd">รายงาน</code></td><td>เลือก 1 / 7 / 15 / 30 วัน: นม เข้าเต้า ฉี่ อึ การนอน และสิ่งผิดปกติ</td></tr>
+          <tr><td>📅 ทุกวันอาทิตย์ 09:00</td><td>รายงานประจำสัปดาห์ พร้อมเสนอรอบนมจากจังหวะจริงของน้อง</td></tr>
+        </table>
+        <table class="ex en">
+          <tr><td><code class="cmd">status</code></td><td>Last feed, next feed and today's totals</td></tr>
+          <tr><td><code class="cmd">report</code></td><td>1 / 7 / 15 / 30 days: feeds, diapers, sleep and anything unusual</td></tr>
+          <tr><td>📅 Sundays 09:00</td><td>Weekly report, with an interval suggestion from your baby's real rhythm</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAFETY ================= -->
+<section id="safety" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="th">ความปลอดภัยมาก่อน</span><span class="en">Safety first</span></h2>
+      <p class="th">เกณฑ์เตือนอ้างอิงแนวทางกุมารเวชศาสตร์และผ่านการตรวจทานจากกุมารแพทย์ การตัดสินว่าอันตรายหรือไม่ใช้กฎที่เขียนไว้ชัดเจน
+        ไม่ได้ให้ AI ตัดสินเอง จดน้อง ช่วยสังเกต แต่<b>ไม่ใช่การวินิจฉัยโรค</b> และไม่แทนการพบแพทย์</p>
+      <p class="en">Warning rules follow pediatric guidance and were reviewed by a pediatrician. Danger is decided by fixed,
+        written rules, never by AI. JodNong helps you notice things; it is <b>not a diagnosis</b> and does not replace a doctor.</p>
+    </div>
+    <div class="levels">
+      <div class="level g"><b>🟢 <span class="th">ปกติ</span><span class="en">Normal</span></b>
+        <span class="th">บันทึกไว้ ไม่มีอะไรต้องทำเพิ่ม</span><span class="en">Saved, nothing else to do</span></div>
+      <div class="level y"><b>🟡 <span class="th">เฝ้าดู</span><span class="en">Watch</span></b>
+        <span class="th">สังเกตอาการต่อ บอทอาจถามติดตาม ถ้าไม่ดีขึ้นควรปรึกษาแพทย์</span><span class="en">Keep an eye on it; the bot may follow up. See a doctor if it doesn't improve</span></div>
+      <div class="level r"><b>🔴 <span class="th">ควรพบแพทย์</span><span class="en">See a doctor</span></b>
+        <span class="th">พบแพทย์วันนี้หรือไปโรงพยาบาลทันที ตามที่ข้อความบอก</span><span class="en">See a doctor today or go to hospital now, as the message says</span></div>
+    </div>
+    <div class="emergency">
+      <p><b class="th">🚨 ฉุกเฉิน เช่น ไม่หายใจ ตัวเขียว ชัก ปลุกไม่ตื่น โทร 1669 ทันที ไม่ต้องรอบอท</b>
+         <b class="en">🚨 Emergency (not breathing, blue lips, seizure, can't be woken): call 1669 now. Don't wait for the bot.</b></p>
+      <a class="btn btn-red" href="tel:1669">📞 <span class="th">โทร 1669</span><span class="en">Call 1669</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMANDS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2><span class="th">คำสั่งที่ใช้บ่อย</span><span class="en">Handy commands</span></h2></div>
+    <div class="card">
+      <table class="ex th">
+        <tr><td><code class="cmd">วิธีใช้งาน</code></td><td>ดูคำสั่งทั้งหมดในแชท</td></tr>
+        <tr><td><code class="cmd">ตั้งค่า</code></td><td>ดูและเปลี่ยนการเตือน รอบนม ที่วัดไข้ ภาษา และเวรเตือนนม</td></tr>
+        <tr><td><code class="cmd">เปลี่ยนชื่อ</code></td><td>เปลี่ยนชื่อเล่นน้อง</td></tr>
+        <tr><td><code class="cmd">English</code> / <code class="cmd">ภาษาไทย</code></td><td>เปลี่ยนภาษา</td></tr>
+        <tr><td><code class="cmd">หยุดเตือน</code> / <code class="cmd">เปิดการแจ้งเตือน</code></td><td>พักข้อความที่บอทส่งเองทั้งหมด / เปิดกลับ</td></tr>
+        <tr><td><code class="cmd">ลบข้อมูลทั้งหมด</code></td><td>ลบข้อมูลของแชทนี้ถาวร (มียืนยันอีกครั้ง)</td></tr>
+      </table>
+      <table class="ex en">
+        <tr><td><code class="cmd">help</code></td><td>All commands, in the chat</td></tr>
+        <tr><td><code class="cmd">settings</code></td><td>Reminders, interval, temperature site, language, reminder duty</td></tr>
+        <tr><td><code class="cmd">change name</code></td><td>Change your baby's nickname</td></tr>
+        <tr><td><code class="cmd">English</code> / <code class="cmd">ภาษาไทย</code></td><td>Switch language</td></tr>
+        <tr><td><code class="cmd">stop</code> / <code class="cmd">resume</code></td><td>Pause / resume everything the bot sends on its own</td></tr>
+        <tr><td><code class="cmd">delete all data</code></td><td>Delete this chat's data for good (asks to confirm)</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2><span class="th">คำถามที่พบบ่อย</span><span class="en">FAQ</span></h2></div>
+    <details><summary><span class="th">เสียเงินไหม?</span><span class="en">Does it cost anything?</span></summary>
+      <div><span class="th">ช่วงทดลองใช้ใช้ได้ฟรีทุกฟีเจอร์ ถ้าในอนาคตมีแบบเสียเงิน จะแจ้งล่วงหน้า และคำเตือนด้านความปลอดภัยจะฟรีเสมอ</span>
+        <span class="en">Everything is free during the trial. If paid features come later you'll be told in advance, and safety warnings will always be free.</span></div></details>
+    <details><summary><span class="th">ใครเห็นข้อมูลของน้องบ้าง?</span><span class="en">Who can see my baby's data?</span></summary>
+      <div><span class="th">เฉพาะคนในแชทนั้น (แชทส่วนตัว หรือสมาชิกในกลุ่มครอบครัว) ข้อมูลแต่ละครอบครัวแยกจากกัน อ่านรายละเอียดได้ที่</span>
+        <span class="en">Only the people in that chat (you, or the members of your family group). Each family's data is kept separate. Details in the</span>
+        <a href="privacy.html"><span class="th">นโยบายความเป็นส่วนตัว</span><span class="en">privacy policy</span></a>.</div></details>
+    <details><summary><span class="th">ลบข้อมูลได้ไหม?</span><span class="en">Can I delete my data?</span></summary>
+      <div><span class="th">ได้ พิมพ์ "ลบข้อมูลทั้งหมด" ในแชท (ถ้าใช้ในกลุ่ม ให้พิมพ์ในกลุ่ม) แล้วกดยืนยัน ข้อมูลจะถูกลบถาวร</span>
+        <span class="en">Yes. Type "delete all data" in the chat (in the group, if you use a group) and confirm. It's deleted for good.</span></div></details>
+    <details><summary><span class="th">บอทจะตอบทุกข้อความในกลุ่มไหม?</span><span class="en">Will the bot reply to everything in our group?</span></summary>
+      <div><span class="th">ไม่ บอทตอบเฉพาะข้อความที่เป็นการบันทึกหรือคำสั่ง ถ้าไม่แน่ใจว่าเป็นเรื่องน้องจะเงียบไว้</span>
+        <span class="en">No. It only answers logs and commands, and stays quiet when a message isn't clearly about the baby.</span></div></details>
+    <details><summary><span class="th">ถ้าบันทึกผิดทำยังไง?</span><span class="en">I logged something wrong. What now?</span></summary>
+      <div><span class="th">กดปุ่ม "↩️ ยกเลิกบันทึกนี้" ใต้ข้อความยืนยัน แล้วพิมพ์ใหม่</span>
+        <span class="en">Tap "↩️ Undo" under the confirmation, then type it again.</span></div></details>
+    <details><summary><span class="th">ลูกหลับอยู่ จะยังเตือนนมไหม?</span><span class="en">Will it remind me while the baby is asleep?</span></summary>
+      <div><span class="th">เตือน เพื่อให้เตรียมนมไว้ก่อนน้องตื่น ถ้าไม่อยากให้เตือนช่วงไหน ตั้ง "ไม่เตือนช่วง 23-6" ได้</span>
+        <span class="en">Yes, so you can get ready before the baby wakes. Set quiet hours (e.g. "ไม่เตือนช่วง 23-6") if you prefer.</span></div></details>
+    <details><summary><span class="th">ใช้ภาษาอังกฤษได้ไหม?</span><span class="en">Can I use it in English?</span></summary>
+      <div><span class="th">ได้ พิมพ์ "English" เมื่อไรก็ได้ ข้อความตอบและคำเตือนจะเป็นภาษาอังกฤษ (ปุ่มเมนูด้านล่างยังเป็นภาษาไทย)</span>
+        <span class="en">Yes. Type "English" any time. Replies and warnings switch to English (the bottom menu stays in Thai).</span></div></details>
+    <details><summary><span class="th">ใช้แทนการพบแพทย์ได้ไหม?</span><span class="en">Can it replace a doctor?</span></summary>
+      <div><span class="th">ไม่ได้ จดน้อง ช่วยจดและเตือนให้สังเกต แต่ไม่วินิจฉัยโรค ถ้ากังวลควรปรึกษาแพทย์เสมอ ฉุกเฉินโทร 1669</span>
+        <span class="en">No. It helps you record and notice things, but it doesn't diagnose. If you're worried, see a doctor. Emergency: 1669.</span></div></details>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="wrap">
+    <h2><span class="th">พร้อมเริ่มแล้วใช่ไหม?</span><span class="en">Ready to start?</span></h2>
+    <p class="th">เพิ่มเพื่อน แล้วบอกชื่อเล่นของน้อง ใช้เวลาไม่ถึง 1 นาที</p>
+    <p class="en">Add the bot and tell it your baby's nickname. Under a minute.</p>
+    <div class="cta">
+      <a class="btn btn-line" data-add href="#"><span class="th">เพิ่มเพื่อนใน LINE</span><span class="en">Add on LINE</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="">จดน้อง</a>
+    <a href="privacy.html"><span class="th">นโยบายความเป็นส่วนตัว</span><span class="en">Privacy policy</span></a>
+    <span><span class="th">ติดต่อ</span><span class="en">Contact</span>: <a data-mail href="#"><span data-fill="email"></span></a></span>
+    <span>© 2026 จดน้อง</span>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"><span class="th"></span><span class="en"></span></div>
+
+<script src="config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
