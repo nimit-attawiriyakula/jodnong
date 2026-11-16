@@ -7,15 +7,15 @@ window.MOMMORIST = {
   lineId: "@jodnong",
 
   // อีเมลติดต่อที่แสดงบนเว็บและในนโยบายความเป็นส่วนตัว
-  email: "hello@example.com",
+  email: "hello@jodnong.com",
 
   // ผู้ควบคุมข้อมูลส่วนบุคคล (ชื่อคุณ หรือชื่อบริษัท)
-  controller: "[ชื่อผู้ควบคุมข้อมูล]",
-  controllerEn: "[Data controller name]",
+  controller: "นิมิต อัตตะวิริยะกุล",
+  controllerEn: "Nimit Attawiriyakula",
 
   // ระยะเวลาเก็บข้อมูล
-  retention: "เก็บไว้ตลอดระยะเวลาที่ใช้บริการ และลบภายใน [X] ปีหลังจากไม่มีการใช้งาน หรือทันทีเมื่อผู้ใช้สั่ง 'ลบข้อมูลทั้งหมด'",
-  retentionEn: "Kept while you use the service and deleted within [X] years of inactivity, or immediately when you type 'delete all data'.",
+  retention: "เก็บไว้ตลอดระยะเวลาที่ใช้บริการ และลบภายใน 2 ปีหลังจากไม่มีการใช้งาน หรือทันทีเมื่อผู้ใช้สั่ง 'ลบข้อมูลทั้งหมด'",
+  retentionEn: "Kept while you use the service and deleted within 2 years of inactivity, or immediately when you type 'delete all data'.",
 
   // วันที่ของนโยบายความเป็นส่วนตัว
   policyDate: "7 พฤศจิกายน 2569",
