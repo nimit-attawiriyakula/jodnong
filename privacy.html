@@ -38,11 +38,12 @@
   <h2>2. ข้อมูลที่เราเก็บ</h2>
   <table>
     <tr><th>ประเภท</th><th>ตัวอย่าง</th></tr>
-    <tr><td>ข้อมูลจาก LINE</td><td>รหัสผู้ใช้ LINE และรหัสกลุ่ม (เพื่อแยกข้อมูลแต่ละครอบครัว) และชื่อที่แสดงใน LINE เฉพาะผู้ที่ตั้งเวรเตือนนม</td></tr>
+    <tr><td>ข้อมูลจาก LINE</td><td>รหัสผู้ใช้ LINE และรหัสกลุ่ม (เพื่อแยกข้อมูลแต่ละครอบครัว) และชื่อที่แสดงใน LINE ของผู้ที่ตั้งเวรเตือนนมหรือบอกบทบาทใน 'ทีมเลี้ยงน้อง'</td></tr>
     <tr><td>ข้อมูลของลูก</td><td>ชื่อเล่น วันเกิด เวลาเกิด (ถ้าบอก) น้ำหนักแรกเกิด</td></tr>
     <tr><td>บันทึกการดูแล</td><td>การกินนม ผ้าอ้อม การนอน น้ำหนัก ส่วนสูง</td></tr>
     <tr><td>ข้อมูลสุขภาพ (ข้อมูลอ่อนไหว)</td><td>อุณหภูมิ อาการ ยาที่ให้ ลักษณะอุจจาระ และคำเตือนที่ระบบส่ง</td></tr>
     <tr><td>ข้อความที่พิมพ์</td><td>ข้อความที่ใช้บันทึก (เก็บไว้เพื่อตรวจสอบความถูกต้องของการบันทึก)</td></tr>
+    <tr><td>คำติชม</td><td>ข้อความที่พิมพ์ต่อจากคำว่า "ติชม" (ใช้ปรับปรุงบริการ)</td></tr>
     <tr><td>การตั้งค่า</td><td>รอบนม การเตือน ช่วงห้ามรบกวน ภาษา ที่วัดไข้</td></tr>
   </table>
   <p>เราไม่เก็บเบอร์โทรศัพท์ อีเมล ที่อยู่ หรือรูปภาพ และไม่ใช้คุกกี้ติดตามบนเว็บไซต์นี้</p>
@@ -67,6 +68,7 @@
     <li><b>LINE</b> รับส่งข้อความ</li>
     <li><b>Supabase</b> ฐานข้อมูล</li>
     <li><b>Render</b> เซิร์ฟเวอร์ที่รันบอท</li>
+    <li><b>GitHub</b> เก็บสำเนาสำรองของฐานข้อมูลที่เข้ารหัสแล้ว</li>
     <li><b>Anthropic (Claude)</b> อ่านข้อความที่ระบบอ่านเองไม่ออก และแปลข้อความเป็นภาษาอังกฤษ
       (ส่งเฉพาะข้อความนั้น ชื่อเล่น และอายุของลูก ไม่ส่งรหัส LINE) <b>AI ไม่ได้เป็นผู้ตัดสินว่าอาการอันตรายหรือไม่</b></li>
     <li><b>OpenAI</b> แปลงข้อความเสียงเป็นตัวอักษร เฉพาะเมื่อเปิดใช้การบันทึกด้วยเสียง</li>
@@ -74,6 +76,8 @@
 
   <h2>6. ระยะเวลาเก็บรักษา</h2>
   <p class="ph" data-fill="retention">[ระยะเวลาเก็บข้อมูล]</p>
+  <p>เราสำรองฐานข้อมูลแบบเข้ารหัสทุกวัน และเก็บสำเนาสำรองไว้ไม่เกิน 30 วัน ข้อมูลที่ลบแล้วจึงอาจยังอยู่ในสำเนาสำรองได้ไม่เกิน 30 วัน
+    จากนั้นจะหมดอายุและถูกลบไปเอง เราใช้สำเนาสำรองเพื่อกู้ระบบเมื่อเกิดเหตุขัดข้องเท่านั้น</p>
 
   <h2>7. สิทธิ์ของคุณ</h2>
   <ul>
@@ -117,11 +121,12 @@
   <h2>2. What we collect</h2>
   <table>
     <tr><th>Type</th><th>Examples</th></tr>
-    <tr><td>From LINE</td><td>LINE user and group IDs (to keep families separate); LINE display name only for a parent on reminder duty</td></tr>
+    <tr><td>From LINE</td><td>LINE user and group IDs (to keep families separate); LINE display name only for a parent on reminder duty or someone who sets a role in the care team</td></tr>
     <tr><td>About your baby</td><td>Nickname, date of birth, birth time (if given), birth weight</td></tr>
     <tr><td>Care logs</td><td>Feeds, diapers, sleep, weight, height</td></tr>
     <tr><td>Health data (sensitive)</td><td>Temperature, symptoms, medicine, stool details, warnings sent</td></tr>
     <tr><td>Messages you type</td><td>The text used to log something (kept to check logs are correct)</td></tr>
+    <tr><td>Feedback</td><td>What you type after "feedback" (used to improve the service)</td></tr>
     <tr><td>Settings</td><td>Interval, reminders, quiet hours, language, temperature site</td></tr>
   </table>
   <p>We do not collect phone numbers, email, addresses or photos, and this website uses no tracking cookies.</p>
@@ -147,6 +152,7 @@
     <li><b>LINE</b>: messaging</li>
     <li><b>Supabase</b>: database</li>
     <li><b>Render</b>: the server running the bot</li>
+    <li><b>GitHub</b>: stores encrypted database backups</li>
     <li><b>Anthropic (Claude)</b>: reads messages the rules can't understand, and translates replies into English
       (only that text, the nickname and age are sent; no LINE IDs). <b>AI never decides whether something is dangerous.</b></li>
     <li><b>OpenAI</b>: turns voice notes into text, only if voice logging is switched on</li>
@@ -154,6 +160,8 @@
 
   <h2>6. How long we keep it</h2>
   <p class="ph" data-fill="retention-en">[Retention period]</p>
+  <p>We back up the database every day, encrypted, and keep each backup for at most 30 days. Deleted data may stay in a
+    backup for up to 30 days before it expires. Backups are used only to recover from an outage.</p>
 
   <h2>7. Your rights</h2>
   <ul>
