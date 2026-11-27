@@ -46,6 +46,27 @@
                      correctLevel: QRCode.CorrectLevel.M });
   }
 
+  // ---------- ☕ support box: QR comes from the bot; the section stays hidden if support is off ----------
+  var bot = (C.botUrl || "https://mommorist.onrender.com").replace(/\/$/, "");
+  var box = document.getElementById("support"), img = document.getElementById("ppqr");
+  if (box && img) {
+    var show = function (amt, count) {
+      img.src = bot + "/promptpay/" + amt + ".png" + (count ? "?src=web" : "");
+      document.getElementById("ppamt").textContent = amt;
+      box.querySelectorAll("[data-amt]").forEach(function (b) {
+        b.setAttribute("aria-pressed", b.getAttribute("data-amt") === String(amt) ? "true" : "false");
+      });
+    };
+    img.addEventListener("load", function () {
+      box.hidden = false;
+      document.querySelectorAll("[data-support-link]").forEach(function (a) { a.hidden = false; });
+    }, { once: true });
+    box.querySelectorAll("[data-amt]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-amt"), true); });
+    });
+    show(69, false);   // first view isn't counted as a choice
+  }
+
   // ---------- tap an example to copy it ----------
   var toast = document.getElementById("toast");
   var timer;

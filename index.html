@@ -469,12 +469,37 @@ and bring the diaper or a photo of it.</span>
     </div>
   </div>
 </section>
+
+<!-- ================= SUPPORT (batch 12c) — hidden until the QR loads ================= -->
+<section id="support" class="alt" hidden>
+  <div class="wrap support">
+    <div>
+      <h2><span class="th">☕ สนับสนุนจดน้อง</span><span class="en">☕ Support JodNong</span></h2>
+      <p class="th">จดน้องใช้ได้ฟรี และการเตือนเรื่องสุขภาพจะฟรีตลอด ถ้าอยากช่วยค่าเซิร์ฟเวอร์และค่าส่งข้อความ เลือกจำนวนแล้วสแกนได้เลย
+        ไม่บังคับ และไม่มีอะไรเปลี่ยนไม่ว่าจะสนับสนุนหรือไม่</p>
+      <p class="en">JodNong is free, and health warnings will always be free. If you'd like to help with server and messaging
+        costs, pick an amount and scan. It's optional; nothing changes either way.</p>
+      <div class="amounts" role="group" aria-label="amount">
+        <button type="button" data-amt="39">39 <span class="th">บาท</span><span class="en">THB</span></button>
+        <button type="button" data-amt="69" aria-pressed="true">69 <span class="th">บาท</span><span class="en">THB</span></button>
+        <button type="button" data-amt="99">99 <span class="th">บาท</span><span class="en">THB</span></button>
+      </div>
+      <p class="small th">บนมือถือ: กดค้างที่ QR เพื่อบันทึกรูป แล้วเปิดแอปธนาคาร → สแกน → เลือกรูปจากอัลบั้ม
+        · เงินสนับสนุนไม่ใช่การบริจาคที่ลดหย่อนภาษีได้</p>
+      <p class="small en">On a phone: press and hold the QR to save it, then open your bank app → scan → pick the image.
+        · Support isn't a tax-deductible donation.</p>
+    </div>
+    <figure class="ppqr"><img id="ppqr" alt="PromptPay QR" width="220" height="220">
+      <figcaption>PromptPay · <b id="ppamt">69</b> <span class="th">บาท</span><span class="en">THB</span></figcaption></figure>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
     <a class="brand" href="#"><img src="assets/logo.png" alt="">จดน้อง</a>
     <a href="privacy.html"><span class="th">นโยบายความเป็นส่วนตัว</span><span class="en">Privacy policy</span></a>
+    <a href="#support" data-support-link hidden><span class="th">☕ สนับสนุนจดน้อง</span><span class="en">☕ Support</span></a>
     <span><span class="th">ติดต่อ</span><span class="en">Contact</span>: <a data-mail href="#"><span data-fill="email"></span></a></span>
     <span>© 2026 จดน้อง</span>
   </div>

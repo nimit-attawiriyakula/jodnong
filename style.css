@@ -211,3 +211,18 @@ ol.mini li::before { content: counter(m); position: absolute; left: 0; top: 1px;
 .emo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 10px 0 12px; }
 .emo span { background: var(--bg); border: 1px solid var(--sand); border-radius: 12px; text-align: center; font-size: 26px; padding: 8px 4px 6px; line-height: 1.2; }
 .emo i { display: block; font-style: normal; font-size: 13px; color: var(--ink-soft, #5B6476); margin-top: 2px; }
+
+/* ---------- ☕ support (batch 12c) ---------- */
+.support { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+.support .amounts { display: flex; gap: 10px; margin: 18px 0 12px; flex-wrap: wrap; }
+.support .amounts button {
+  font: 600 16px "IBM Plex Sans Thai Looped", sans-serif; padding: 10px 18px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--stone); background: var(--surface); color: var(--ink);
+}
+.support .amounts button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.support .small { font-size: 14px; color: var(--muted); }
+.ppqr { margin: 0; padding: 16px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+.ppqr img { display: block; width: 220px; height: 220px; }
+.ppqr figcaption { margin-top: 8px; color: var(--muted); font-size: 14px; }
+@media (max-width: 720px) { .support { grid-template-columns: 1fr; } .ppqr { justify-self: center; } }
+[hidden] { display: none !important; }
