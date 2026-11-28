@@ -18,6 +18,6 @@ window.MOMMORIST = {
   retentionEn: "Kept while you use the service and deleted within 2 years of inactivity, or immediately when you type 'delete all data'.",
 
   // วันที่ของนโยบายความเป็นส่วนตัว
-  policyDate: "27 พฤศจิกายน 2569",
-  policyDateEn: "27 November 2026",
+  policyDate: "28 พฤศจิกายน 2569",
+  policyDateEn: "28 November 2026",
 };
